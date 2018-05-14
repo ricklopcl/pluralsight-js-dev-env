@@ -9,12 +9,12 @@ describe('Our first test', () => {
 });
 
 describe('index.html', () => {
-  it('Should say hello', (done) => {
+  it('Should have h1 that says Users', (done) => {
     const index = fs.readFileSync('./src/index.html', 'utf-8');
     // Second parameter for jsdom.env could contain any js that you need to run virtually
     jsdom.env(index, (error, window) => {
       const h1 = window.document.getElementsByTagName('h1')[0];
-      expect(h1.innerHTML).to.equal('Hello World!');
+      expect(h1.innerHTML).to.equal('Users');
       done();
       window.close();
     });
